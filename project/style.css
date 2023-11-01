@@ -10,25 +10,26 @@
 
 body {
  font-size: 1.6rem;
+ font-family: 'Bebas Neue', sans-serif;
 }
 
 header {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   padding: 3rem 0;
   background-color: lightsalmon;
 }
 
 .test {
-  width: 10%;
+  width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .test p {
-  padding: 1rem;
+  padding: 1rem 2rem;
   font-size: 3rem;
 }
 
@@ -40,7 +41,6 @@ nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 nav ul li {
@@ -49,31 +49,102 @@ nav ul li {
   padding: 0.5rem 1rem;
 }
 
+li i {
+  color: white;
+}
+
 nav ul li a {
   text-decoration: none;
   font-size: 2rem;
   color: white;
   font-weight: bold;
+  position: relative;
+  padding: 0.5rem 0;
 }
+
+a span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  opacity: 0;
+}
+
+a:hover span {
+  opacity: 1;
+  transition: all 0.8s ease-in-out;
+}
+
+.ham {
+  display: none;
+}
+
+.ham .box {
+  background-color: white;
+  height: 0.8rem;
+  width: 3rem;
+  margin: 0 1.5rem;
+}
+
 
 /* GRID */
 
 .grid-container {
-  width: 80%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 2rem auto;
   display: grid;
-  grid-template-areas: "img1 img1 img2 img2";
+  grid-template-areas: "img1 img1 img2 img2"
+                       "img1 img1 img3 img3"
+                       "img4 img4 img3 img3"
+                       "img4 img4 img5 img5"
+                       "img4 img4 img5 img5"
+                       "img6 img6 img5 img5"
+                       "img7 img7 img5 img5"
+                       "img7 img7 img8 img8";
   gap: 2rem;
-}
-
-.item {
-  width: 100%;
 }
 
 .item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 10px;
+}
+
+.item {
+  position: relative;
+}
+
+.item p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 3rem;
+  text-shadow: 1px 1px 5px black, -1px 1px 5px black;
+  background-color: rgba(0, 0, 0, 0.187);
+  opacity: 0;
+}
+
+.item p::after {
+  content: "\f06e";
+  font: var(--fa-font-solid);
+  font-size: 1.5rem;
+  margin: 0 1rem;
+
+}
+
+.item p:hover {
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
 }
 
 .img1 {
@@ -106,4 +177,94 @@ nav ul li a {
 
 .img8 {
   grid-area: img8;
+}
+
+footer {
+  margin: 0 auto;
+  width: 90%;
+  background-color: lightsalmon;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer ul li {
+  font-size: 2rem;
+  list-style-type: none;
+  padding: 5rem 3rem;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+
+/* It is animated with CSS from line 65-78 */
+footer ul li a span {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  top: 0;
+  left: 0;
+}
+
+@media (width <= 768px) {
+  header {
+    width: 100%;
+  }
+
+  nav ul li {
+    margin: 0 0.5rem;
+  }
+
+  .grid-container {
+    width: 98%;
+    grid-template-areas: "img1 img1"
+                         "img1 img1"
+                         "img2 img2"
+                         "img3 img4"
+                         "img3 img4"
+                         "img3 img5"
+                         "img6 img5"
+                         "img6 img5"
+                         "img6 img7"
+                         "img8 img8";
+  }
+
+  footer {
+    width: 100%;
+  }
+}
+
+@media (width <= 580px) {
+  .grid-container {
+    grid-template-areas: "img1"
+                         "img2"
+                         "img3"
+                         "img4"
+                         "img5"
+                         "img6"
+                         "img7"
+                         "img8";
+  }
+}
+
+@media (width <= 560px) {
+  nav {
+    display: none;
+  }
+  .ham {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+    align-items: center;
+  }
 }
