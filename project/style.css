@@ -1,15 +1,111 @@
 * {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
 }
 
 :root {
-font-size: 62.5%;
+ font-size: 62.5%;
 }
 
 body {
-font-size: 1.6rem;
+ font-size: 1.6rem;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  padding: 3rem 0;
+  background-color: lightsalmon;
+}
 
+.test {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.test p {
+  padding: 1rem;
+  font-size: 3rem;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+nav ul li {
+  list-style-type: none;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* GRID */
+
+.grid-container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "img1 img1 img1",
+                       "img2 img2 img2",
+                       "img3 img3 img4",
+                       "img3 img3 img4",
+                       "img5 img6 img6",
+                       "img5 img7 img7",
+                       "img5 img8 img8";
+  gap: 2rem;
+}
+
+.item img {
+  width: 70%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.img1 {
+  grid-area: img1;
+}
+
+.img2 {
+  grid-area: img2;
+}
+
+.img3 {
+  grid-area: img3;
+}
+
+.img4 {
+  grid-area: img4;
+}
+
+.img5 {
+  grid-area: img5;
+}
+
+.img6 {
+  grid-area: img6;
+}
+
+.img7 {
+  grid-area: img7;
+}
+
+.img8 {
+  grid-area: img8;
+}
